@@ -1,0 +1,150 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+}
+
+#game {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: url('your-background-image.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+#player {
+  width: 80px;  /* tăng từ 50 lên 80 */
+  height: 80px;
+  border-radius: 50%;
+  background: blue;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+
+  position: absolute;
+  transform: translate(-50%, -50%);
+
+}
+
+.friend {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: green;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#powerDisplay {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-family: sans-serif;
+}
+
+.popup {
+  position: absolute;
+  color: black;
+  font-size: 16px;
+  animation: floatUp 1.5s ease-out forwards;
+}
+
+@keyframes floatUp {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-50px); }
+}
+
+/* thêm phần này vào cuối file style.css */
+
+.hp-bar {
+  position: absolute;
+  height: 6px;
+  background: red;
+  border-radius: 3px;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hp-bar-inner {
+  height: 100%;
+  background: limegreen;
+  width: 100%;
+  transition: width 0.3s ease;
+}
+
+/*enemy*/
+
+.enemy {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: red;  /* dễ thấy */
+  border-radius: 50%;
+  border: 2px solid darkred;
+  box-sizing: border-box;
+  z-index: 5;
+}
+
+.enemy .hp-bar {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #555;
+  border-radius: 3px;
+}
+
+.enemy .hp-bar-inner {
+  width: 100%;
+  height: 100%;
+  background-color: limegreen;
+  border-radius: 3px;
+}
+
+/* Flash đỏ khi bị thương */
+#damageFlash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 0, 0, 0.4);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+  z-index: 999;
+}
+
+/* Rung màn hình */
+.shake {
+  animation: shake 0.3s;
+}
+
+@keyframes shake {
+  0% { transform: translate(2px, 2px); }
+  20% { transform: translate(-2px, -2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-2px, 2px); }
+  80% { transform: translate(2px, 2px); }
+  100% { transform: translate(0, 0); }
+}
