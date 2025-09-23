@@ -116,7 +116,7 @@ function nextIntro() {
 
 window.addEventListener("keydown", e => { if (inIntro && e.code === "Space") nextIntro(); });
 window.addEventListener("touchstart", () => { if (inIntro) nextIntro(); });
-
+// Max $$$
 // ================== UI ==================
 function showPopup(text, x, y) {
   const el = document.createElement('div');
@@ -388,7 +388,7 @@ function shootDefenseSkill() {
               playerHP += 1;
               if (teamPower % 10 === 0) {
                 maxBullets++;
-                showPopup("Max Bullets +1!", playerX, playerY - 60);
+                showPopup("Max $$$ +1!", playerX, playerY - 60);
               }
               updateStatusDisplay();
             }
@@ -482,7 +482,7 @@ function moveEnemies() {
     const enemyRadius = enemy.offsetWidth / 2;
     const stopDistance = playerRadius + enemyRadius;
 
-    if (dist > stopDistance) {
+    if (dist >= stopDistance) {
       const desiredMove = Math.min(enemy.speed, dist - stopDistance);
       const vx = (dx / dist) * desiredMove;
       const vy = (dy / dist) * desiredMove;
@@ -494,6 +494,7 @@ function moveEnemies() {
       const vy = Math.sin(angle) * 0.5;
       enemy.style.left = `${enemy.offsetLeft + vx}px`;
       enemy.style.top  = `${enemy.offsetTop + vy}px`;
+      enemy.isAttacking = true;
     }
   });
 }
@@ -543,7 +544,7 @@ function checkAttackCollisions() {
           
           if (teamPower % 10 === 0) {
             maxBullets++;
-            showPopup("Max Bullets +1!", playerX, playerY - 60);
+            showPopup("Max $$$ +1!", playerX, playerY - 60);
           }
           updateStatusDisplay();
         }
@@ -576,7 +577,7 @@ function checkEnemyCollisions(timestamp) {
     const dist = Math.hypot(enemyCenterX - playerCenterX, enemyCenterY - playerCenterY);
     const colliderDistance = Math.min(enemyRect.width, enemyRect.height) / 2 + Math.min(playerRect.width, playerRect.height) / 2;
 
-    if (dist <= colliderDistance) {
+    if (enemy.isAttacking) {
       if (!enemy.lastDamageTime || timestamp - enemy.lastDamageTime >= 1000) {
         enemy.lastDamageTime = timestamp;
 
@@ -643,7 +644,11 @@ function gameLoop(timestamp) {
 function gameOver() {
   cancelAnimationFrame(gameLoopId);
   inIntro = true;
-  setTimeout(() => { if (confirm("Game Over! Restart?")) resumeGame(); }, 100);
+  setTimeout(() => {
+    if (confirm("Bạn đã tạch!")) {
+      window.location.href = "index.html"; // quay về intro
+    }
+  }, 200);
 }
 
 function resumeGame() {
