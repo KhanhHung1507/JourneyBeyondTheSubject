@@ -288,7 +288,7 @@ h1 {
       <div class="avatar-container">
         <img src="myImage.png" alt="Ảnh Nguyễn Khánh Hưng" class="intro-image">
         <img src="myImage4.jpg" alt="Ảnh 2" class="intro-image small">
-        <img src="myImage2.jpg" alt="Ảnh 3" class="intro-image small">
+        <!--<img src="myImage2.jpg" alt="Ảnh 3" class="intro-image small">-->
       </div>
 
       <div class="text-container">
@@ -299,11 +299,12 @@ h1 {
         </div>
         <div class="section">
           <h2>Điểm mạnh</h2>
-          <p>Luôn lạc quan, hướng đến những điều tích cực. Chủ động thay đổi bản thân để phù hợp môi trường (hơi hướng nội 😄).</p>
+          <p>Luôn lạc quan, hướng đến những điều tích cực. Chủ động thay đổi bản thân để phù hợp môi trường.</p>
         </div>
         <div class="section">
-          <h2>Kỳ vọng</h2>
-          <p>Mong muốn nâng cao kiến thức, kỹ năng và kinh nghiệm, đồng thời đạt thứ hạng cao trong chương trình.</p>
+          <h2>Kỹ năng</h2>
+          <p>Có kinh nghiệm gia sư 2 tháng</p>
+          <p>Có kỹ năng ứng dụng công nghệ vào đời sống</p>
         </div>
 
         <!-- Liên kết mạng xã hội -->
@@ -322,11 +323,11 @@ h1 {
     </div>
   </div>
 
-  <!-- JUMPSCARE -->
+  <!-- JUMPSCARE
   <div id="jumpscare">
     <img src="myImage3.jpg" alt="Jumpscare">
     <audio id="jumpscare-sound" src="jumpscare.mp3"></audio>
-  </div>
+  </div>-->
 
 <script>
 function createBulbs(noteId) {
@@ -357,17 +358,13 @@ createBulbs("note-left");
 createBulbs("note-right");
 
 function showJumpscare() {
-  const jumpscare = document.getElementById("jumpscare");
+  /*const jumpscare = document.getElementById("jumpscare");
   const sound = document.getElementById("jumpscare-sound");
 
   jumpscare.style.display = "flex";
   sound.currentTime = 0;
-  sound.play();
-
-  setTimeout(() => {
-    jumpscare.style.display = "none";
-    window.location.href = "game.html";
-  }, 500);
+  sound.play();*/
+  window.location.href = "game.html";
 }
 </script>
 </body>
